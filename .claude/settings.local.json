@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ln -s \"/e/time pass/vibevision/.agents/skills/backend-dev-guidelines\" \"/e/time pass/vibevision/.claude/skills/backend-dev-guidelines\")",
+      "Bash(ln -s \"/e/time pass/vibevision/.agents/skills/backend-development\" \"/e/time pass/vibevision/.claude/skills/backend-development\")",
+      "Bash(ln -s \"/e/time pass/vibevision/.agents/skills/nodejs-backend-patterns\" \"/e/time pass/vibevision/.claude/skills/nodejs-backend-patterns\")",
+      "Bash(node --trace-deprecation -e \"require\\('next/dist/server/lib/router/utils/parse-url'\\)\")",
+      "Bash(python3 .claude/skills/ui-ux-pro-max/scripts/search.py \"AI video generation studio creative tool dark\" --design-system -p \"Deepvid AI\" -f markdown)",
+      "WebFetch(domain:deepvid.ai)",
+      "Bash(python \"C:/Users/Lenovo/.claude/skills/ui-ux-pro-max/scripts/search.py\" \"AI video generation studio creative tool dark immersive\" --design-system -p \"VibeVision AI Studio\")"
+    ]
+  }
+}

@@ -26,13 +26,13 @@ export const UpgradeView = () => {
         <h5 className="font-medium text-2xl md:text-3xl">
           You are on the{" "}
           <span className="font-semibold text-primary">
-            {currentSubscription?.name ?? "Free"}
+            {(currentSubscription as any)?.name ?? "Free"}
           </span>{" "}
           plan
         </h5>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {products.map((product) => {
-            const isCurrentProduct = currentSubscription?.id === product.id;
+          {(products as any[]).map((product: any) => {
+            const isCurrentProduct = (currentSubscription as any)?.id === product.id;
             const isPremium = !!currentSubscription;
 
             let buttonText = "Upgrade";
@@ -40,9 +40,11 @@ export const UpgradeView = () => {
 
             if (isCurrentProduct) {
               buttonText = "Manage";
+              // @ts-ignore
               onClick = () => authClient.customer.portal();
             } else if (isPremium) {
               buttonText = "Change Plan";
+              // @ts-ignore
               onClick = () => authClient.customer.portal();
             }
 
@@ -63,9 +65,13 @@ export const UpgradeView = () => {
                     : 0
                 }
                 description={product.description}
-                priceSuffix={`/${product.prices[0].recurringInterval}`}
+                priceSuffix={
+                product.prices[0].type === "recurring"
+                  ? `/${product.prices[0].recurringInterval}`
+                  : ""
+              }
                 features={product.benefits.map(
-                  (benefit) => benefit.description
+                  (benefit: any) => benefit.description
                 )}
                 badge={product.metadata.badge as string | null}
               />
